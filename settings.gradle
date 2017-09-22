@@ -14,4 +14,4 @@
  * limitations under the License.
  */
 
-include ':sample-kotlin', ':sample-java', ':library'
+include ':sample-kotlin', ':sample-java', ':sample-shared', ':library'
