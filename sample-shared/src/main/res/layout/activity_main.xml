@@ -22,18 +22,25 @@
     android:padding="16dp" >
 
     <Button
-        android:id="@+id/feature_tutorial"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/feature_tutorial_example"/>
-
-    <Button
         android:id="@+id/simple_dialog"
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/simple_dialog_example" />
+
+    <Button
+        android:id="@+id/selection_dialog"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/selection_dialog_example" />
+
+    <Button
+        android:id="@+id/feature_tutorial"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/feature_tutorial_example"/>
 
     <Button
         android:id="@+id/rate_it"

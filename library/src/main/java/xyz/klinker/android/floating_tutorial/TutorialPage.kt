@@ -16,6 +16,7 @@
 
 package xyz.klinker.android.floating_tutorial
 
+import android.content.Intent
 import android.graphics.Color
 import android.support.annotation.*
 import android.support.v7.widget.CardView
@@ -124,6 +125,15 @@ abstract class TutorialPage(private val activity: FloatingTutorialActivity) : Fr
      */
     fun setResult(result: Int) {
         activity.setResult(result)
+    }
+
+    /**
+     * Set the result of the [FloatingTutorialActivity].
+     *
+     * @param result the result that will be passed to calling Activity.
+     */
+    fun setResult(result: Int, data: Intent) {
+        activity.setResult(result, data)
     }
 
     /**

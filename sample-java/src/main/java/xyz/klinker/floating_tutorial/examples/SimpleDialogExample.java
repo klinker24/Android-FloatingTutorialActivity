@@ -23,12 +23,29 @@ import java.util.List;
 
 import xyz.klinker.android.floating_tutorial.FloatingTutorialActivity;
 import xyz.klinker.android.floating_tutorial.TutorialPage;
+import xyz.klinker.floating_tutorial.R;
+import xyz.klinker.floating_tutorial.util.AnimationHelper;
 
 public class SimpleDialogExample extends FloatingTutorialActivity {
 
     @NotNull
     @Override
     public List<TutorialPage> getPages() {
-        return new ArrayList<>();
+        List<TutorialPage> pages = new ArrayList<>();
+
+        pages.add(new TutorialPage(this) {
+            @Override
+            public void initPage() {
+                setContentView(R.layout.example_simple_dialog);
+                setNextButtonText(R.string.ok);
+            }
+
+            @Override
+            public void animateLayout() {
+                AnimationHelper.quickViewReveal(findViewById(R.id.bottom_text), 300);
+            }
+        });
+
+        return pages;
     }
 }

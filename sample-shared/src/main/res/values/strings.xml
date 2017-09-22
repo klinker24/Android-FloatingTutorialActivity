@@ -16,10 +16,26 @@
   -->
 
 <resources>
-    <string name="app_name">Floating Tutorial</string>
 
-    <string name="feature_tutorial_example">Feature Tutorial Example</string>
+    <string name="app_name">Floating Tutorial</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+
+    <!-- Example Titles -->
     <string name="simple_dialog_example">Simple Dialog Example</string>
+    <string name="selection_dialog_example">Selection Dialog Example</string>
+    <string name="feature_tutorial_example">Feature Tutorial Example</string>
     <string name="rate_it_example">Rate It Example</string>
     <string name="iap_flow_example">In App Purchase Flow Example</string>
+
+    <!-- Simple Dialog Example -->
+    <string name="simple_dialog_title">Here is a simple dialog</string>
+    <string name="simple_dialog_summary">You could use this as a type of alert dialog, if you wanted. Longer content can go here and it will adjust to the correct size.</string>
+
+    <!-- Selection Dialog Example -->
+    <string name="selection_dialog_title">Select an item: </string>
+    <string name="selection_dialog_summary">The result of this selection can be returned as the Activity result.</string>
+    <string name="item_one">Item one</string>
+    <string name="item_two">Item two</string>
+
 </resources>
