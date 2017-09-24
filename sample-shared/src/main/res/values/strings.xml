@@ -38,4 +38,14 @@
     <string name="item_one">Item one</string>
     <string name="item_two">Item two</string>
 
+    <!-- Rate-it Dialog Example -->
+    <string name="rate_it_page_1_title">Loving the app?</string>
+    <string name="rate_it_page_1_summary">Let us know how we are doing!</string>
+    <string name="rate_it_page_2_good_title">Consider giving us a Play Store review!</string>
+    <string name="rate_it_page_2_good_summary">We knew you would love it. Every review counts and helps us improve the app!</string>
+    <string name="rate_it_page_2_bad_title">We would love to hear what we can improve!</string>
+    <string name="rate_it_page_2_bad_summary">Not loving the app yet? Please get in touch to let us know how to make it better!</string>
+    <string name="rate_it">Rate It!</string>
+    <string name="send_email">Send Email</string>
+
 </resources>

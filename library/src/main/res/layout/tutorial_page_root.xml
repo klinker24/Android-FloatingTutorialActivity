@@ -22,7 +22,7 @@
     android:background="@android:color/white"
     android:orientation="vertical"
     app:cardCornerRadius="3dp"
-    app:cardElevation="4dp" >
+    app:cardElevation="4dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -54,6 +54,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
+                android:layout_marginEnd="12dp"
+                android:layout_marginRight="12dp"
                 android:background="?selectableItemBackgroundBorderless"
                 android:text="@string/tutorial_next"
                 android:textColor="@android:color/black" />

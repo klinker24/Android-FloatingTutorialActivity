@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (C) 2017 Luke Klinker
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~ http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/top_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:padding="24dp"
+        android:text="@string/rate_it_page_1_title"
+        android:textColor="@android:color/white"
+        android:textSize="19sp" />
+
+    <TextView
+        android:id="@+id/bottom_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="12dp"
+        android:paddingEnd="24dp"
+        android:paddingStart="24dp"
+        android:paddingTop="24dp"
+        android:text="@string/rate_it_page_1_summary"
+        android:textColor="@color/tutorial_light_background_indicator"
+        android:textSize="16sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <ImageButton
+            android:id="@+id/thumbs_up"
+            android:layout_width="84dp"
+            android:layout_height="84dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginRight="15dp"
+            android:alpha=".75"
+            android:background="?selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_thumb_up"
+            android:tint="@color/tutorial_light_background_indicator" />
+
+        <ImageButton
+            android:id="@+id/thumbs_down"
+            android:layout_width="84dp"
+            android:layout_height="84dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginStart="15dp"
+            android:alpha=".75"
+            android:background="?selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_thumb_down"
+            android:tint="@color/tutorial_light_background_indicator" />
+
+    </LinearLayout>
+
+</LinearLayout>

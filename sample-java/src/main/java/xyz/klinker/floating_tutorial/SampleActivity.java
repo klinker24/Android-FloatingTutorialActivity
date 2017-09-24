@@ -31,7 +31,8 @@ import xyz.klinker.floating_tutorial.examples.TutorialExample;
 public class SampleActivity extends AppCompatActivity {
 
     private static final int REQUEST_SELECTION = 1;
-    private static final int REQUEST_PURCHASE = 2;
+    private static final int REQUEST_RATE_IT = 2;
+    private static final int REQUEST_PURCHASE = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +63,7 @@ public class SampleActivity extends AppCompatActivity {
         findViewById(R.id.rate_it).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(SampleActivity.this, RateItExample.class));
+                startActivityForResult(new Intent(SampleActivity.this, RateItExample.class), REQUEST_RATE_IT);
             }
         });
 
@@ -78,6 +79,8 @@ public class SampleActivity extends AppCompatActivity {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_SELECTION && resultCode == RESULT_OK) {
             Toast.makeText(this, data.getStringExtra(SelectionDialogExample.RESULT_DATA_TEXT), Toast.LENGTH_SHORT).show();
+        } else if (requestCode == REQUEST_RATE_IT && resultCode == RESULT_OK) {
+            Toast.makeText(this, data.getStringExtra(RateItExample.RESULT_DATA_TEXT), Toast.LENGTH_SHORT).show();
         } else if (requestCode == REQUEST_PURCHASE) {
             if (resultCode == RESULT_OK) {
                 Toast.makeText(this, "Purchase Selected: ", Toast.LENGTH_SHORT).show();
