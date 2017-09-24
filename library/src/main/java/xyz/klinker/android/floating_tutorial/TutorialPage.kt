@@ -41,8 +41,12 @@ abstract class TutorialPage(private val activity: FloatingTutorialActivity) : Fr
     private val progressHolder: LinearLayout by lazy { rootLayout.findViewById<View>(R.id.tutorial_progress) as LinearLayout }
     private val nextButton: Button by lazy { rootLayout.findViewById<View>(R.id.tutorial_next_button) as Button }
 
+    private var data: Any? = null
+    private var pageIndex: Int? = null
+
     internal fun init(pageIndex: Int) {
         val pageCount = activity.getPageCount()
+        this.pageIndex = pageIndex
 
         val layoutParams = FrameLayout.LayoutParams(DensityConverter.toDp(activity, 316), ViewGroup.LayoutParams.WRAP_CONTENT)
         layoutParams.gravity = Gravity.CENTER
@@ -123,7 +127,7 @@ abstract class TutorialPage(private val activity: FloatingTutorialActivity) : Fr
      *
      * @param result the result that will be passed to calling Activity.
      */
-    fun setResult(result: Int) {
+    fun setActivityResult(result: Int) {
         activity.setResult(result)
     }
 
@@ -132,8 +136,30 @@ abstract class TutorialPage(private val activity: FloatingTutorialActivity) : Fr
      *
      * @param result the result that will be passed to calling Activity.
      */
-    fun setResult(result: Int, data: Intent) {
+    fun setActivityResult(result: Int, data: Intent) {
         activity.setResult(result, data)
+    }
+
+    /**
+     * Set the data for this page so that the next page can retrieve the result
+     *
+     * @param data the data associated with this page, retrievable with the [TutorialPage.getPreviousPageResult]
+     */
+    fun setPageResultData(data: Any?) {
+        this.data = data
+    }
+
+    /**
+     * Get the data that is set as the result for this page.
+     */
+    fun getPageResultData(): Any? = data
+
+    /**
+     * Get the data that is set as the result for the previous page.
+     */
+    fun getPreviousPageResult(): Any? {
+        if (pageIndex == 0) throw IllegalStateException("Cannot get the previous page result on the first page of the tutorial")
+        return activity.provider.tutorialPages[pageIndex!! - 1].getPageResultData()
     }
 
     /**

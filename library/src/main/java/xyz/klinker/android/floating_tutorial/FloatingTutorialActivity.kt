@@ -31,7 +31,7 @@ abstract class FloatingTutorialActivity : AppCompatActivity() {
      */
     abstract fun getPages(): List<TutorialPage>
 
-    private val provider: TutorialPageProvider by lazy { TutorialPageProvider(this) }
+    internal val provider: TutorialPageProvider by lazy { TutorialPageProvider(this) }
     private val presenter: TutorialPresenter by lazy { TutorialPresenter(this, provider) }
 
     private val pageHolder: FrameLayout by lazy { findViewById<View>(R.id.tutorial_page_holder) as FrameLayout }
