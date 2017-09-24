@@ -24,12 +24,17 @@ import xyz.klinker.android.floating_tutorial.suite.FloatingTutorialJunitSuite
 
 class TutorialPresenterTest : FloatingTutorialJunitSuite() {
 
+    private class FinishedListenerTutorial : FloatingTutorialActivity(), TutorialFinishedListener {
+        override fun onTutorialFinished() { }
+        override fun getPages(): List<TutorialPage> { return emptyList() }
+    }
+
     private var presenter: TutorialPresenter? = null
 
     @Mock
     var activity: FloatingTutorialActivity? = null
     @Mock
-    internal var provider: TutorialPageProvider? = null
+    private var provider: TutorialPageProvider? = null
 
     @Before
     fun setUp() {
@@ -120,5 +125,17 @@ class TutorialPresenterTest : FloatingTutorialJunitSuite() {
         presenter!!.onNextPressed()
 
         verify(presenter!!).circularRevealOut()
+    }
+
+    @Test
+    fun shouldProvideFinishedCallbackWhenAvailable() {
+        val activityMock = mock(FinishedListenerTutorial::class.java)
+        presenter = spy(TutorialPresenter(activityMock, provider!!))
+
+        doNothing().`when`(presenter!!).circularRevealOut()
+        `when`(provider!!.nextPage()).thenReturn(null)
+        presenter!!.onNextPressed()
+
+        verify(activityMock).onTutorialFinished()
     }
 }

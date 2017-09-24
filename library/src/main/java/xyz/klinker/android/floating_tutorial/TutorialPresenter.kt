@@ -59,6 +59,10 @@ internal class TutorialPresenter(private val activity: FloatingTutorialActivity,
         val nextPage = pageProvider.nextPage()
         if (nextPage == null) {
             circularRevealOut()
+
+            if (activity is TutorialFinishedListener) {
+                activity.onTutorialFinished()
+            }
         } else {
             nextPage.onShown(pageProvider.isFirstVisitToPage(pageProvider.currentPageNumber + 1))
 
