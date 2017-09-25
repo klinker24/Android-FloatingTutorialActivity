@@ -14,10 +14,9 @@ The goal of this library isn't to confine you to certain UI styles or guidelines
 
 Add the following to your app's `build.gradle` file:
 
-```groovy
+```java
 dependencies {
-	...
-	compile 'com.klinkerapps:floating-tutorial:1.0.2'
+    compile "com.klinkerapps:floating-tutorial:1.0.2"
 }
 ```
 
@@ -39,7 +38,7 @@ That function will return the list of pages that the user will see. The simplest
 override fun getPages() = listOf(
     object : TutorialPage(this@SimpleDialogExample) {
         override fun initPage() {
-            setContentView(R.layout.simple_dialog)
+            setContentView(R.layout.simple_layout)
         }
     })
 )
@@ -53,7 +52,7 @@ To customize the look of the page, there are numerous options available:
 object : TutorialPage(this@SimpleDialogExample) {
     override fun initPage() {
         // set the layout for the individual page
-        setContentView(R.layout.simple_dialog)
+        setContentView(R.layout.simple_layout)
 
         // manipulate views however you want
         val view = findViewById<View>(R.id.example_view)
@@ -78,12 +77,14 @@ In my examples, as well as my own usage of this library, I like to provide subtl
 
 ```kotlin
 object : TutorialPage(this@SimpleDialogExample) {
+    ...
+
     override fun animateLayout() {
-        val layout = findViewById<View>(R.id.example_view)
+        val view = findViewById<View>(R.id.example_view)
 
         // do some animation here. I have an example animation that you could use:
         // https://github.com/klinker24/Android-FloatingTutorialActivity/blob/master/sample-kotlin/src/main/java/xyz/klinker/floating_tutorial/util/AnimationHelper.kt
-        AnimationHelper.quickViewReveal(layout, 300)
+        AnimationHelper.quickViewReveal(view, 300)
     }
 })
 ```
@@ -107,11 +108,11 @@ This is a good example of the need to communicate the previous page's result to 
 
 The sample app comes with a few different examples, highlighting different functionality:
 
-* [SimpleDialogExample](sample-kotlin/src/main/java/xyz/klinker/floating-tutorial/examples/SimpleDialogExample.kt):
-* [SelectionDialogExample](sample-kotlin/src/main/java/xyz/klinker/floating-tutorial/examples/SelectionDialogExample.kt):
-* [FeatureWalkthroughExample](sample-kotlin/src/main/java/xyz/klinker/floating-tutorial/examples/FeatureWalkthroughExample.kt):
-* [RateItExample](sample-kotlin/src/main/java/xyz/klinker/floating-tutorial/examples/RateItExample.kt):
-* [PulseSmsPurchaseExample](sample-kotlin/src/main/java/xyz/klinker/floating-tutorial/examples/PulseSmsPurchaseExample.kt):
+* [SimpleDialogExample](sample-kotlin/src/main/java/xyz/klinker/floating-tutorial/examples/SimpleDialogExample.kt): a quick and nice looking replacement for an alert dialog, if you want it. This demonstrates a single page and some of the animation capabilites.
+* [SelectionDialogExample](sample-kotlin/src/main/java/xyz/klinker/floating-tutorial/examples/SelectionDialogExample.kt): this demonstrates a selection process. It will provide the selection result as the `Activity` result.
+* [FeatureWalkthroughExample](sample-kotlin/src/main/java/xyz/klinker/floating-tutorial/examples/FeatureWalkthroughExample.kt): this is a simple feature tutorial that could be used anywhere in your apps. It also demonstrates changing the background color and providing multiple pages.
+* [RateItExample](sample-kotlin/src/main/java/xyz/klinker/floating-tutorial/examples/RateItExample.kt): as discussed above, this example demonstrates passing data between the current and the previous page and manipulating the page, based on that data.
+* [PulseSmsPurchaseExample](sample-kotlin/src/main/java/xyz/klinker/floating-tutorial/examples/PulseSmsPurchaseExample.kt): this demonstrates one way that I have used the `floating-tutorial` in [Pulse SMS](https://play.google.com/store/apps/details?id=xyz.klinker.messenger). It demonstrates more complex layouts and animations, as well as an `Activity` result.
 
 ## Contributing
 
