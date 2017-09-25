@@ -4,7 +4,7 @@
 
 # Android Floating Tutorial Activity
 
-This README discusses the usage of the tutorial in **Java** rather than **Kotlin**, which is demonstrated in the [README.md](README.md).
+This README discusses the usage of the tutorial in **Java** rather than **Kotlin**. **Kotlin** usage is shown in the [README.md](README.md). The **Java** and **Kotlin** sample apps are functionally equivalent.
 
 ## Usage
 
@@ -63,7 +63,7 @@ new TutorialPage(context) {
 })
 ```
 
-Any other customization you want can come directly from your layout file. My examples show the primary color for the background of the top text. You could do that inside of your layout, if you like that look.
+Any other customization can come directly from your layout file. My examples show the primary color for the background of the top text. You could do that inside of your layout, if you like that look.
 
 ### Animating the layouts
 
@@ -90,15 +90,15 @@ new TutorialPage(context) {
 
 If you would rather animate the `View` every time the page is shown, you could override the `TutorialPage#onShown(firstTimeShown: Boolean)` method, instead. If you override that, be sure to call the super class method.
 
-### Providing results from the individual pages, or the entire tutorial
+### Providing `TutorialPage` and `Activity` Results
 
 <p align="center">
   <img src="artwork/result_data.gif">
 </p>
 
-Sometimes, you may need to have some state in your tutorial. If you are using the tutorial to log in a user, for example, you will probably need the calling `Activity` to know if the login was successful or not.
+Sometimes, you may need store and provide some kind of state within the tutorial. For example: if you are using the tutorial to log in a user, you will probably need the calling `Activity` to know if the login was successful or not.
 
-For an example of how to provide an `Activity` result from your `TutorialPage`, please see the [SelectionDialogExample](sample-java/src/main/java/xyz/klinker/floating_tutorial/examples/SelectionDialogExample.java).
+Please see the [SelectionDialogExample](sample-java/src/main/java/xyz/klinker/floating_tutorial/examples/SelectionDialogExample.java) as an example of providing the calling `Activity` the result of your `FloatingTutorialActivity`.
 
 Other times, you may need to know the result of the previous page, to display the UI for the next page. In the [RateItExample](sample-java/src/main/java/xyz/klinker/floating_tutorial/examples/RateItExample.java), the first page asks the user to give a thumbs up or thumbs down.
 

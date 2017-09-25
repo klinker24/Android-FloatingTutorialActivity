@@ -8,9 +8,7 @@ This is a simple, easy-to-implement, and highly customizable framework for makin
 
 The goal of this library isn't to confine you to certain UI styles or guidelines that I have made. The goal here is to provide you with a framework that you can build off of yourself. The content of these tutorial pages can be anything you want. That said, I have provided a few examples here, of UIs that have worked well for me and that I think provide a pretty great experience.
 
-*Note: the library itself is in [Kotlin](https://kotlinlang.org/), which is now [native to Android](https://blog.jetbrains.com/kotlin/2017/05/kotlin-on-android-now-official/). I have created sample applications in both* **Kotlin** *and* **Java**. *So, as you go through and figure out how to implement this library, you can use either sample as a reference. They are functionally equivalent.*
-
-*If you would like to see the usage section of this README in* **Java** *please head to the [Java-flavored README](README-JAVA.md).*
+> *Note: the library itself is in [Kotlin](https://kotlinlang.org/), which is now [native to Android](https://blog.jetbrains.com/kotlin/2017/05/kotlin-on-android-now-official/). I have created sample applications in both* **Kotlin** *and* **Java**. *The samples are functionally equivalent. If you would like to see the usage section of this README in* **Java** *please head to the [Java-flavored README](README_JAVA.md).*
 
 ## Including it in your Project
 
@@ -71,7 +69,7 @@ object : TutorialPage(this@SimpleDialogExample) {
 })
 ```
 
-Any other customization you want can come directly from your layout file. My examples show the primary color for the background of the top text. You could do that inside of your layout, if you like that look.
+Any other customization can come directly from your layout file. My examples show the primary color for the background of the top text. You could do that inside of your layout, if you like that look.
 
 ### Animating the layouts
 
@@ -97,15 +95,15 @@ object : TutorialPage(this@SimpleDialogExample) {
 
 If you would rather animate the `View` every time the page is shown, you could override the `TutorialPage#onShown(firstTimeShown: Boolean)` method, instead. If you override that, be sure to call the super class method.
 
-### Providing results from the individual pages, or the entire tutorial
+### Providing `TutorialPage` and `Activity` Results
 
 <p align="center">
   <img src="artwork/result_data.gif">
 </p>
 
-Sometimes, you may need to have some state in your tutorial. If you are using the tutorial to log in a user, for example, you will probably need the calling `Activity` to know if the login was successful or not.
+Sometimes, you may need store and provide some kind of state within the tutorial. For example: if you are using the tutorial to log in a user, you will probably need the calling `Activity` to know if the login was successful or not.
 
-For an example of how to provide an `Activity` result from your `TutorialPage`, please see the [SelectionDialogExample](sample-kotlin/src/main/java/xyz/klinker/floating_tutorial/examples/SelectionDialogExample.kt).
+Please see the [SelectionDialogExample](sample-kotlin/src/main/java/xyz/klinker/floating_tutorial/examples/SelectionDialogExample.kt) as an example of providing the calling `Activity` the result of your `FloatingTutorialActivity`.
 
 Other times, you may need to know the result of the previous page, to display the UI for the next page. In the [RateItExample](sample-kotlin/src/main/java/xyz/klinker/floating_tutorial/examples/RateItExample.kt), the first page asks the user to give a thumbs up or thumbs down.
 
@@ -130,7 +128,7 @@ Please fork this repository and contribute back using [pull requests](https://gi
 
 ## Changelog
 
-The full changelog for the library can be found [here](https://github.com/klinker24/Android-FloatingTutorialActivity/blob/master/CHANGELOG.md).
+The full changelog for the library can be found [here](CHANGELOG.md).
 
 ## License
 
