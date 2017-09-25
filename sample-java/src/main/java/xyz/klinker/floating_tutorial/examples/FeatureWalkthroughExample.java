@@ -23,6 +23,8 @@ import java.util.List;
 
 import xyz.klinker.android.floating_tutorial.FloatingTutorialActivity;
 import xyz.klinker.android.floating_tutorial.TutorialPage;
+import xyz.klinker.floating_tutorial.R;
+import xyz.klinker.floating_tutorial.util.AnimationHelper;
 
 public class FeatureWalkthroughExample extends FloatingTutorialActivity {
 
@@ -34,12 +36,48 @@ public class FeatureWalkthroughExample extends FloatingTutorialActivity {
         pages.add(new TutorialPage(this) {
             @Override
             public void initPage() {
-
+                setContentView(R.layout.example_feature_walkthrough_page_1);
+                setBackgroundColorResource(R.color.darkBackgroundColor);
             }
 
             @Override
             public void animateLayout() {
+                AnimationHelper.animateGroup(
+                        findViewById(R.id.feature_one_image),
+                        findViewById(R.id.bottom_text)
+                );
+            }
+        });
 
+        pages.add(new TutorialPage(this) {
+            @Override
+            public void initPage() {
+                setContentView(R.layout.example_feature_walkthrough_page_2);
+            }
+
+            @Override
+            public void animateLayout() {
+                AnimationHelper.animateGroup(
+                        findViewById(R.id.bottom_text),
+                        findViewById(R.id.feature_two_image)
+                );
+            }
+        });
+
+        pages.add(new TutorialPage(this) {
+            @Override
+            public void initPage() {
+                setContentView(R.layout.example_feature_walkthrough_page_3);
+                setBackgroundColorResource(R.color.colorPrimary);
+            }
+
+            @Override
+            public void animateLayout() {
+                AnimationHelper.animateGroup(
+                        findViewById(R.id.feature_three_image_one),
+                        findViewById(R.id.feature_three_image_two),
+                        findViewById(R.id.bottom_text)
+                );
             }
         });
 

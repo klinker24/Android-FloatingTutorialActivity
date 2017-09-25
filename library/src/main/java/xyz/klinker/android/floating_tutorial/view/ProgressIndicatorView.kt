@@ -50,11 +50,11 @@ class ProgressIndicatorView @JvmOverloads constructor(
         invalidate()
     }
 
-    override fun onDraw(canvas: Canvas) {
+    override fun onDraw(canvas: Canvas?) {
         if (current) {
-            canvas.drawCircle(activatedSize / 2, activatedSize / 2, activatedSize / 2, paint)
+            canvas?.drawCircle(activatedSize / 2, activatedSize / 2, activatedSize / 2, paint)
         } else {
-            canvas.drawCircle(defaultSize / 2, defaultSize / 2, defaultSize / 2, paint)
+            canvas?.drawCircle(defaultSize / 2, defaultSize / 2, defaultSize / 2, paint)
         }
     }
 

@@ -48,4 +48,13 @@
     <string name="rate_it">Rate It!</string>
     <string name="send_email">Send Email</string>
 
+    <!-- Feature Walk-through Example -->
+    <string name="feature_1_title">My awesome first feature</string>
+    <string name="feature_1_summary">Tell the users why this feature is great! You could put a picture
+        of the feature above, or some kind of graphic, or an animation. Everything is up to you.</string>
+    <string name="feature_2_title">The pretty cool second feature</string>
+    <string name="feature_2_summary">Hey, look what I can do for you. You need this app!</string>
+    <string name="feature_3_title">One more, for good measure</string>
+    <string name="feature_3_summary">You can change the background color of the tutorial, however you like.</string>
+
 </resources>

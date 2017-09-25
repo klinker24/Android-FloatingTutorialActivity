@@ -222,7 +222,7 @@ abstract class TutorialPage(private val activity: FloatingTutorialActivity) : Fr
      * @param newColor the color value you want to use.
      */
     fun setProgressIndicatorColor(newColor: Int) {
-        post {
+        progressHolder.post {
             (0 until progressHolder.childCount)
                     .map { progressHolder.getChildAt(it) as ProgressIndicatorView }
                     .forEach { it.setColor(newColor) }
