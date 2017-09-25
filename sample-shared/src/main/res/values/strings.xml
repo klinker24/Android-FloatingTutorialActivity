@@ -26,7 +26,7 @@
     <string name="selection_dialog_example">Selection Dialog Example</string>
     <string name="feature_tutorial_example">Feature Walk-through Example</string>
     <string name="rate_it_example">Rate It Example</string>
-    <string name="iap_flow_example">In App Purchase Flow Example</string>
+    <string name="iap_flow_example">Pulse SMS Purchase Flow Example</string>
 
     <!-- Simple Dialog Example -->
     <string name="simple_dialog_title">Here is a simple dialog</string>
@@ -56,5 +56,23 @@
     <string name="feature_2_summary">Hey, look what I can do for you. You need this app!</string>
     <string name="feature_3_title">One more, for good measure</string>
     <string name="feature_3_summary">You can change the background color of the tutorial, however you like.</string>
+
+    <!-- Pulse SMS Purchase Flow Example -->
+    <string name="beautiful_powerful_instant">Beautiful, powerful, instant.</string>
+    <string name="optimized_for_all_your_devices">Pulse is optimized for <b>all</b> your devices.
+        Send texts from the web, a desktop computer, your tablet, a watch, and even your TV.</string>
+    <string name="true_imessage_competitor">The first <b>true</b> iMessage competitor for Android.</string>
+    <string name="try_it">Try it!</string>
+    <string name="seven_days_free">7 days free!</string>
+    <string name="competition_cant_beat">The competition can\'t touch our prices, speed, or service -
+        <b>take 7 days</b> to find out for yourself!</string>
+    <string name="select_a_trial_below">Select one of the options below to start your <b>free trial</b>.</string>
+    <string name="charged_after_trial">Charged after the trial:</string>
+    <string name="monthly_purchase">$0.99 /\nmonth</string>
+    <string name="three_month_purchase">$1.99 /\n3 month</string>
+    <string name="yearly_purchase">$5.99 /\nyear</string>
+    <string name="billed_immediately">This is billed immediately.</string>
+    <string name="lifetime_purchase">$10.99 - Lifetime Membership</string>
+    <string name="lifetime_purchase_summary">Pay once, and never again!</string>
 
 </resources>

@@ -22,7 +22,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
 
-import xyz.klinker.floating_tutorial.examples.InAppPurchaseExample;
+import xyz.klinker.floating_tutorial.examples.PulseSmsPurchaseExample;
 import xyz.klinker.floating_tutorial.examples.RateItExample;
 import xyz.klinker.floating_tutorial.examples.SelectionDialogExample;
 import xyz.klinker.floating_tutorial.examples.SimpleDialogExample;
@@ -70,7 +70,7 @@ public class SampleActivity extends AppCompatActivity {
         findViewById(R.id.iap_flow).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivityForResult(new Intent(SampleActivity.this, InAppPurchaseExample.class), REQUEST_PURCHASE);
+                startActivityForResult(new Intent(SampleActivity.this, PulseSmsPurchaseExample.class), REQUEST_PURCHASE);
             }
         });
     }
@@ -78,15 +78,15 @@ public class SampleActivity extends AppCompatActivity {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_SELECTION && resultCode == RESULT_OK) {
-            Toast.makeText(this, data.getStringExtra(SelectionDialogExample.RESULT_DATA_TEXT), Toast.LENGTH_SHORT).show();
+            showToast(data.getStringExtra(SelectionDialogExample.RESULT_DATA_TEXT));
         } else if (requestCode == REQUEST_RATE_IT && resultCode == RESULT_OK) {
-            Toast.makeText(this, data.getStringExtra(RateItExample.RESULT_DATA_TEXT), Toast.LENGTH_SHORT).show();
-        } else if (requestCode == REQUEST_PURCHASE) {
-            if (resultCode == RESULT_OK) {
-                Toast.makeText(this, "Purchase Selected: ", Toast.LENGTH_SHORT).show();
-            } else {
-                Toast.makeText(this, "No selection made", Toast.LENGTH_SHORT).show();
-            }
+            showToast(data.getStringExtra(RateItExample.RESULT_DATA_TEXT));
+        } else if (requestCode == REQUEST_PURCHASE && resultCode == RESULT_OK) {
+            showToast("Purchase Selected: " + data.getStringExtra(PulseSmsPurchaseExample.RESULT_DATA_TEXT));
         }
+    }
+
+    private void showToast(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 }
