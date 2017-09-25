@@ -29,6 +29,7 @@ import java.util.List;
 import xyz.klinker.android.floating_tutorial.FloatingTutorialActivity;
 import xyz.klinker.android.floating_tutorial.TutorialPage;
 import xyz.klinker.floating_tutorial.R;
+import xyz.klinker.floating_tutorial.util.AnimationHelper;
 
 public class RateItExample extends FloatingTutorialActivity {
 
@@ -39,73 +40,98 @@ public class RateItExample extends FloatingTutorialActivity {
     public List<TutorialPage> getPages() {
         List<TutorialPage> pages = new ArrayList<>();
 
-        pages.add(new TutorialPage(this) {
-            @Override
-            public void initPage() {
-                setContentView(R.layout.example_rate_it_page_1);
-                hideNextButton();
-
-                findViewById(R.id.thumbs_up).setOnClickListener(new OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        setPageResultData(RateItResult.THUMBS_UP);
-                        onNextPressed();
-                    }
-                });
-
-                findViewById(R.id.thumbs_down).setOnClickListener(new OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        setPageResultData(RateItResult.THUMBS_DOWN);
-                        onNextPressed();
-                    }
-                });
-            }
-
-            @Override
-            public void onShown(boolean firstTimeShown) {
-                super.onShown(firstTimeShown);
-                setActivityResult(Activity.RESULT_CANCELED);
-            }
-        });
-
-        pages.add(new TutorialPage(this) {
-            @Override
-            public void initPage() {
-                setContentView(R.layout.example_rate_it_page_2);
-            }
-
-            @Override
-            public void onShown(boolean firstTimeShown) {
-                super.onShown(firstTimeShown);
-
-                TextView titleText = (TextView) findViewById(R.id.top_text);
-                TextView summaryText = (TextView) findViewById(R.id.bottom_text);
-
-                RateItResult previousResult = (RateItResult) getPreviousPageResult();
-                if (previousResult == RateItResult.THUMBS_UP) {
-                    titleText.setText(R.string.rate_it_page_2_good_title);
-                    summaryText.setText(R.string.rate_it_page_2_good_summary);
-
-                    Intent data = new Intent();
-                    data.putExtra(RESULT_DATA_TEXT, "Send that user to the Play Store to give you a rating!");
-                    setActivityResult(Activity.RESULT_OK, data);
-
-                    setNextButtonText(R.string.rate_it);
-                } else {
-                    titleText.setText(R.string.rate_it_page_2_bad_title);
-                    summaryText.setText(R.string.rate_it_page_2_bad_summary);
-
-                    Intent data = new Intent();
-                    data.putExtra(RESULT_DATA_TEXT, "They have feedback for your app. Maybe allow them to send you an email?");
-                    setActivityResult(Activity.RESULT_OK, data);
-
-                    setNextButtonText(R.string.send_email);
-                }
-            }
-        });
+        pages.add(new PageOne(this));
+        pages.add(new PageTwo(this));
 
         return pages;
+    }
+
+    private static class PageOne extends TutorialPage {
+        public PageOne(@NotNull FloatingTutorialActivity activity) {
+            super(activity);
+        }
+
+        @Override
+        public void initPage() {
+            setContentView(R.layout.example_rate_it_page_1);
+            hideNextButton();
+
+            findViewById(R.id.thumbs_up).setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    setPageResultData(RateItResult.THUMBS_UP);
+                    getActivity().onNextPressed();
+                }
+            });
+
+            findViewById(R.id.thumbs_down).setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    setPageResultData(RateItResult.THUMBS_DOWN);
+                    getActivity().onNextPressed();
+                }
+            });
+        }
+
+        @Override
+        public void onShown(boolean firstTimeShown) {
+            super.onShown(firstTimeShown);
+            setActivityResult(Activity.RESULT_CANCELED);
+        }
+
+        @Override
+        public void animateLayout() {
+            AnimationHelper.animateGroup(
+                    findViewById(R.id.bottom_text),
+                    findViewById(R.id.thumbs_up),
+                    findViewById(R.id.thumbs_down)
+            );
+        }
+    }
+
+    private static class PageTwo extends TutorialPage {
+        public PageTwo(@NotNull FloatingTutorialActivity activity) {
+            super(activity);
+        }
+
+        @Override
+        public void initPage() {
+            setContentView(R.layout.example_rate_it_page_2);
+        }
+
+        @Override
+        public void onShown(boolean firstTimeShown) {
+            super.onShown(firstTimeShown);
+
+            TextView titleText = (TextView) findViewById(R.id.top_text);
+            TextView summaryText = (TextView) findViewById(R.id.bottom_text);
+
+            RateItResult previousResult = (RateItResult) getPreviousPageResult();
+            if (previousResult == RateItResult.THUMBS_UP) {
+                titleText.setText(R.string.rate_it_page_2_good_title);
+                summaryText.setText(R.string.rate_it_page_2_good_summary);
+
+                Intent data = new Intent();
+                data.putExtra(RESULT_DATA_TEXT, "Send that user to the Play Store to give you a rating!");
+                setActivityResult(Activity.RESULT_OK, data);
+
+                setNextButtonText(R.string.rate_it);
+            } else {
+                titleText.setText(R.string.rate_it_page_2_bad_title);
+                summaryText.setText(R.string.rate_it_page_2_bad_summary);
+
+                Intent data = new Intent();
+                data.putExtra(RESULT_DATA_TEXT, "They have feedback for your app. Maybe allow them to send you an email?");
+                setActivityResult(Activity.RESULT_OK, data);
+
+                setNextButtonText(R.string.send_email);
+            }
+        }
+
+        @Override
+        public void animateLayout() {
+            AnimationHelper.quickViewReveal(findViewById(R.id.bottom_text), 300);
+        }
     }
 
     private enum RateItResult {

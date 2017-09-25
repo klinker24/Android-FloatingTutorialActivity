@@ -26,7 +26,7 @@ import xyz.klinker.floating_tutorial.examples.InAppPurchaseExample;
 import xyz.klinker.floating_tutorial.examples.RateItExample;
 import xyz.klinker.floating_tutorial.examples.SelectionDialogExample;
 import xyz.klinker.floating_tutorial.examples.SimpleDialogExample;
-import xyz.klinker.floating_tutorial.examples.TutorialExample;
+import xyz.klinker.floating_tutorial.examples.FeatureWalkthroughExample;
 
 public class SampleActivity extends AppCompatActivity {
 
@@ -56,7 +56,7 @@ public class SampleActivity extends AppCompatActivity {
         findViewById(R.id.feature_tutorial).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(SampleActivity.this, TutorialExample.class));
+                startActivity(new Intent(SampleActivity.this, FeatureWalkthroughExample.class));
             }
         });
 

@@ -41,7 +41,7 @@
             android:name=".examples.SelectionDialogExample"
             android:theme="@style/tutorial_FloatingTutorialTheme" />
         <activity
-            android:name=".examples.TutorialExample"
+            android:name=".examples.FeatureWalkthroughExample"
             android:theme="@style/tutorial_FloatingTutorialTheme" />
         <activity
             android:name=".examples.RateItExample"

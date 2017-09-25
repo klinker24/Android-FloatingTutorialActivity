@@ -24,7 +24,7 @@
     <!-- Example Titles -->
     <string name="simple_dialog_example">Simple Dialog Example</string>
     <string name="selection_dialog_example">Selection Dialog Example</string>
-    <string name="feature_tutorial_example">Feature Tutorial Example</string>
+    <string name="feature_tutorial_example">Feature Walk-through Example</string>
     <string name="rate_it_example">Rate It Example</string>
     <string name="iap_flow_example">In App Purchase Flow Example</string>
 

@@ -24,11 +24,25 @@ import java.util.List;
 import xyz.klinker.android.floating_tutorial.FloatingTutorialActivity;
 import xyz.klinker.android.floating_tutorial.TutorialPage;
 
-public class TutorialExample extends FloatingTutorialActivity {
+public class FeatureWalkthroughExample extends FloatingTutorialActivity {
 
     @NotNull
     @Override
     public List<TutorialPage> getPages() {
-        return new ArrayList<>();
+        List<TutorialPage> pages = new ArrayList<>();
+
+        pages.add(new TutorialPage(this) {
+            @Override
+            public void initPage() {
+
+            }
+
+            @Override
+            public void animateLayout() {
+
+            }
+        });
+
+        return pages;
     }
 }
