@@ -1,4 +1,4 @@
-![feature graphic](artwork/sample.png)
+![feature graphic](artwork/feature.gif)
 
 # Android Floating Tutorial Activity
 

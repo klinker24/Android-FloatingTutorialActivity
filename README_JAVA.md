@@ -1,3 +1,5 @@
+![feature graphic](artwork/feature.gif)
+
 # Android Floating Tutorial Activity
 
 This README discusses the usage of the tutorial in **Java** rather than **Kotlin**, which is demonstrated in the [README.md](README.md).
