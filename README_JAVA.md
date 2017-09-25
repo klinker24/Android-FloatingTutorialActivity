@@ -1,4 +1,6 @@
-![feature graphic](artwork/feature.gif)
+<p align="center">
+  <img src="artwork/feature.gif">
+</p>
 
 # Android Floating Tutorial Activity
 
@@ -65,7 +67,9 @@ Any other customization you want can come directly from your layout file. My exa
 
 ### Animating the layouts
 
-![animation](artwork/animation.gif)
+<p align="center">
+  <img src="artwork/animation.gif">
+</p>
 
 In my examples, as well as my own usage of this library, I like to provide subtle animations the first time that a user views a `TutorialPage`. If they were to go backwards in the tutorial, then return to a page for a second time, I do not show the animation again. If you would like to animate your pages in this way, you can override the `TutorialPage#animateLayout` function.
 
@@ -87,6 +91,10 @@ new TutorialPage(context) {
 If you would rather animate the `View` every time the page is shown, you could override the `TutorialPage#onShown(firstTimeShown: Boolean)` method, instead. If you override that, be sure to call the super class method.
 
 ### Providing results from the individual pages, or the entire tutorial
+
+<p align="center">
+  <img src="artwork/result_data.gif">
+</p>
 
 Sometimes, you may need to have some state in your tutorial. If you are using the tutorial to log in a user, for example, you will probably need the calling `Activity` to know if the login was successful or not.
 

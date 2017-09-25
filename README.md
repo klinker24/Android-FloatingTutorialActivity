@@ -1,4 +1,6 @@
-![feature graphic](artwork/feature.gif)
+<p align="center">
+  <img src="artwork/feature.gif">
+</p>
 
 # Android Floating Tutorial Activity
 
@@ -96,6 +98,10 @@ object : TutorialPage(this@SimpleDialogExample) {
 If you would rather animate the `View` every time the page is shown, you could override the `TutorialPage#onShown(firstTimeShown: Boolean)` method, instead. If you override that, be sure to call the super class method.
 
 ### Providing results from the individual pages, or the entire tutorial
+
+<p align="center">
+  <img src="artwork/result_data.gif">
+</p>
 
 Sometimes, you may need to have some state in your tutorial. If you are using the tutorial to log in a user, for example, you will probably need the calling `Activity` to know if the login was successful or not.
 
