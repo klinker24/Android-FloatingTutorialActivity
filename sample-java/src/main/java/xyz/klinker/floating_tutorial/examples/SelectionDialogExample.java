@@ -22,8 +22,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,7 +43,6 @@ public class SelectionDialogExample extends FloatingTutorialActivity {
         }
     }
 
-    @NotNull
     @Override
     public List<TutorialPage> getPages() {
         List<TutorialPage> pages = new ArrayList<>();

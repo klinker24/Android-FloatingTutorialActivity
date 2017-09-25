@@ -34,6 +34,22 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".examples.SimpleDialogExample"
+            android:theme="@style/tutorial_FloatingTutorialTheme" />
+        <activity
+            android:name=".examples.SelectionDialogExample"
+            android:theme="@style/tutorial_FloatingTutorialTheme" />
+        <activity
+            android:name=".examples.FeatureWalkthroughExample"
+            android:theme="@style/tutorial_FloatingTutorialTheme" />
+        <activity
+            android:name=".examples.RateItExample"
+            android:theme="@style/tutorial_FloatingTutorialTheme" />
+        <activity
+            android:name=".examples.PulseSmsPurchaseExample"
+            android:theme="@style/tutorial_FloatingTutorialTheme" />
+
     </application>
 
 </manifest>

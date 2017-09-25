@@ -15,7 +15,6 @@
  */
 
 apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion Integer.parseInt(project.COMPILE_SDK)
@@ -56,7 +55,6 @@ android {
 }
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$KOTLIN_VERSION"
     implementation "com.android.support:appcompat-v7:$ANDROID_SUPPORT_VERSION"
 
     implementation project(":library")

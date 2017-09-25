@@ -21,8 +21,6 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.TextView;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,7 +33,6 @@ public class RateItExample extends FloatingTutorialActivity {
 
     public static final String RESULT_DATA_TEXT = "result_data_text";
 
-    @NotNull
     @Override
     public List<TutorialPage> getPages() {
         List<TutorialPage> pages = new ArrayList<>();
@@ -47,7 +44,7 @@ public class RateItExample extends FloatingTutorialActivity {
     }
 
     private static class PageOne extends TutorialPage {
-        public PageOne(@NotNull FloatingTutorialActivity activity) {
+        public PageOne(FloatingTutorialActivity activity) {
             super(activity);
         }
 
@@ -90,7 +87,7 @@ public class RateItExample extends FloatingTutorialActivity {
     }
 
     private static class PageTwo extends TutorialPage {
-        public PageTwo(@NotNull FloatingTutorialActivity activity) {
+        public PageTwo(FloatingTutorialActivity activity) {
             super(activity);
         }
 

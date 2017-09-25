@@ -16,8 +16,6 @@
 
 package xyz.klinker.floating_tutorial.examples;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,7 +26,6 @@ import xyz.klinker.floating_tutorial.util.AnimationHelper;
 
 public class SimpleDialogExample extends FloatingTutorialActivity {
 
-    @NotNull
     @Override
     public List<TutorialPage> getPages() {
         List<TutorialPage> pages = new ArrayList<>();

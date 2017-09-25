@@ -19,8 +19,6 @@ package xyz.klinker.floating_tutorial.examples;
 import android.content.Intent;
 import android.view.View;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,7 +31,6 @@ public class PulseSmsPurchaseExample extends FloatingTutorialActivity {
 
     public static final String RESULT_DATA_TEXT = "result_data_text";
 
-    @NotNull
     @Override
     public List<TutorialPage> getPages() {
         List<TutorialPage> pages = new ArrayList<>();
