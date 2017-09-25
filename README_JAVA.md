@@ -63,6 +63,8 @@ Any other customization you want can come directly from your layout file. My exa
 
 ### Animating the layouts
 
+![animation](artwork/animation.gif)
+
 In my examples, as well as my own usage of this library, I like to provide subtle animations the first time that a user views a `TutorialPage`. If they were to go backwards in the tutorial, then return to a page for a second time, I do not show the animation again. If you would like to animate your pages in this way, you can override the `TutorialPage#animateLayout` function.
 
 ```java
@@ -86,9 +88,9 @@ If you would rather animate the `View` every time the page is shown, you could o
 
 Sometimes, you may need to have some state in your tutorial. If you are using the tutorial to log in a user, for example, you will probably need the calling `Activity` to know if the login was successful or not.
 
-For an example of how to provide an `Activity` result from your `TutorialPage`, please see the [SelectionDialogExample](sample-java/src/main/java/xyz/klinker/floating-tutorial/examples/SelectionDialogExample.java).
+For an example of how to provide an `Activity` result from your `TutorialPage`, please see the [SelectionDialogExample](sample-java/src/main/java/xyz/klinker/floating_tutorial/examples/SelectionDialogExample.java).
 
-Other times, you may need to know the result of the previous page, to display the UI for the next page. In the [RateItExample](sample-java/src/main/java/xyz/klinker/floating-tutorial/examples/RateItExample.java), the first page asks the user to give a thumbs up or thumbs down.
+Other times, you may need to know the result of the previous page, to display the UI for the next page. In the [RateItExample](sample-java/src/main/java/xyz/klinker/floating_tutorial/examples/RateItExample.java), the first page asks the user to give a thumbs up or thumbs down.
 
 * If the user selects thumbs down, the second page will ask them if they want to provide feedback.
 * If the user selects thumbs up, the second page will ask them if they want to rate the app on the Play Store.
@@ -99,11 +101,11 @@ This is a good example of the need to communicate the previous page's result to 
 
 The sample app comes with a few different examples, highlighting different functionality:
 
-* [SimpleDialogExample](sample-java/src/main/java/xyz/klinker/floating-tutorial/examples/SimpleDialogExample.java): a quick and nice looking replacement for an alert dialog, if you want it. This demonstrates a single page and some of the animation capabilites.
-* [SelectionDialogExample](sample-java/src/main/java/xyz/klinker/floating-tutorial/examples/SelectionDialogExample.java): this demonstrates a selection process. It will provide the selection result as the `Activity` result.
-* [FeatureWalkthroughExample](sample-java/src/main/java/xyz/klinker/floating-tutorial/examples/FeatureWalkthroughExample.java): this is a simple feature tutorial that could be used anywhere in your apps. It also demonstrates changing the background color and providing multiple pages.
-* [RateItExample](sample-java/src/main/java/xyz/klinker/floating-tutorial/examples/RateItExample.java): as discussed above, this example demonstrates passing data between the current and the previous page and manipulating the page, based on that data.
-* [PulseSmsPurchaseExample](sample-java/src/main/java/xyz/klinker/floating-tutorial/examples/PulseSmsPurchaseExample.java): this demonstrates one way that I have used the `floating-tutorial` in [Pulse SMS](https://play.google.com/store/apps/details?id=xyz.klinker.messenger). It demonstrates more complex layouts and animations, as well as an `Activity` result.
+* [SimpleDialogExample](sample-java/src/main/java/xyz/klinker/floating_tutorial/examples/SimpleDialogExample.java): a quick and nice looking replacement for an alert dialog, if you want it. This demonstrates a single page and some of the animation capabilites.
+* [SelectionDialogExample](sample-java/src/main/java/xyz/klinker/floating_tutorial/examples/SelectionDialogExample.java): this demonstrates a selection process. It will provide the selection result as the `Activity` result.
+* [FeatureWalkthroughExample](sample-java/src/main/java/xyz/klinker/floating_tutorial/examples/FeatureWalkthroughExample.java): this is a simple feature tutorial that could be used anywhere in your apps. It also demonstrates changing the background color and providing multiple pages.
+* [RateItExample](sample-java/src/main/java/xyz/klinker/floating_tutorial/examples/RateItExample.java): as discussed above, this example demonstrates passing data between the current and the previous page and manipulating the page, based on that data.
+* [PulseSmsPurchaseExample](sample-java/src/main/java/xyz/klinker/floating_tutorial/examples/PulseSmsPurchaseExample.java): this demonstrates one way that I have used the `floating-tutorial` in [Pulse SMS](https://play.google.com/store/apps/details?id=xyz.klinker.messenger). It demonstrates more complex layouts and animations, as well as an `Activity` result.
 
 ## License
 
