@@ -1,5 +1,8 @@
 # Changelog
 
+### v1.0.3
+* update dependencies and build tools
+
 ### v1.0.2
 * allow data to flow from page to page. The current page can now get the result of the previous page.
 

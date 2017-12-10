@@ -84,7 +84,13 @@ internal class TutorialPresenter(private val activity: FloatingTutorialActivity,
             val cx = firstPage.width / 2
             val cy = firstPage.height / 2
             val finalRadius = Math.hypot(cx.toDouble(), cy.toDouble()).toFloat()
-            ViewAnimationUtils.createCircularReveal(firstPage, cx, cy, 0f, finalRadius).start()
+
+            try {
+                ViewAnimationUtils.createCircularReveal(firstPage, cx, cy, 0f, finalRadius).start()
+            } catch (e: IllegalStateException) {
+                firstPage.alpha = 0f
+                firstPage.animate().alpha(1f).start()
+            }
         } else {
             firstPage.alpha = 0f
             firstPage.animate().alpha(1f).start()
@@ -104,16 +110,26 @@ internal class TutorialPresenter(private val activity: FloatingTutorialActivity,
             val cx = currentPage.width / 2
             val cy = currentPage.height / 2
             val initialRadius = Math.hypot(cx.toDouble(), cy.toDouble()).toFloat()
-            val anim = ViewAnimationUtils.createCircularReveal(currentPage, cx, cy, initialRadius, 0f)
-            anim.addListener(object : AnimatorListenerAdapter() {
-                override fun onAnimationEnd(animation: Animator) {
-                    super.onAnimationEnd(animation)
-                    currentPage.visibility = View.INVISIBLE
-                    activity.close()
-                }
-            })
 
-            anim.start()
+            try {
+                val anim = ViewAnimationUtils.createCircularReveal(currentPage, cx, cy, initialRadius, 0f)
+                anim.addListener(object : AnimatorListenerAdapter() {
+                    override fun onAnimationEnd(animation: Animator) {
+                        super.onAnimationEnd(animation)
+                        currentPage.visibility = View.INVISIBLE
+                        activity.close()
+                    }
+                })
+
+                anim.start()
+            } catch (e: IllegalStateException) {
+                currentPage.animate().alpha(0f).setListener(object : AnimatorListenerAdapter() {
+                    override fun onAnimationEnd(animation: Animator) {
+                        super.onAnimationEnd(animation)
+                        activity.close()
+                    }
+                }).start()
+            }
         } else {
             currentPage.animate().alpha(0f).setListener(object : AnimatorListenerAdapter() {
                 override fun onAnimationEnd(animation: Animator) {
