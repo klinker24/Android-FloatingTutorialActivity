@@ -1,5 +1,8 @@
 # Changelog
 
+### v1.0.4
+* update dependencies and build tools
+
 ### v1.0.3
 * update dependencies and build tools
 
