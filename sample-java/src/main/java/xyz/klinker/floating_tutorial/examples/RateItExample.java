@@ -94,6 +94,14 @@ public class RateItExample extends FloatingTutorialActivity {
         @Override
         public void initPage() {
             setContentView(R.layout.example_rate_it_page_2);
+
+            findViewById(R.id.tutorial_back_button).setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    setActivityResult(Activity.RESULT_CANCELED, new Intent());
+                    getActivity().finishAnimated();
+                }
+            });
         }
 
         @Override
@@ -113,6 +121,7 @@ public class RateItExample extends FloatingTutorialActivity {
                 setActivityResult(Activity.RESULT_OK, data);
 
                 setNextButtonText(R.string.rate_it);
+                setBackButtonText(R.string.no_thanks);
             } else {
                 titleText.setText(R.string.rate_it_page_2_bad_title);
                 summaryText.setText(R.string.rate_it_page_2_bad_summary);
@@ -122,6 +131,7 @@ public class RateItExample extends FloatingTutorialActivity {
                 setActivityResult(Activity.RESULT_OK, data);
 
                 setNextButtonText(R.string.send_email);
+                setBackButtonText(R.string.no_thanks);
             }
         }
 

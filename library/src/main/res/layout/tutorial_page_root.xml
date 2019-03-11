@@ -40,26 +40,44 @@
 
             <LinearLayout
                 android:id="@+id/tutorial_progress"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="12dp"
-                android:layout_marginRight="12dp"
-                android:layout_weight="1"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/tutorial_back_button"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginStart="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginBottom="6dp"
+                android:text="@string/tutorial_back"
+                android:textColor="@android:color/black"
+                android:visibility="gone"
+                app:rippleColor="@color/tutorial_ripple_color" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/tutorial_next_button"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
-                app:rippleColor="@color/tutorial_ripple_color"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:layout_marginEnd="12dp"
                 android:layout_marginRight="12dp"
-                android:background="?selectableItemBackgroundBorderless"
+                android:layout_marginBottom="6dp"
                 android:text="@string/tutorial_next"
-                android:textColor="@android:color/black" />
+                android:textColor="@android:color/black"
+                app:rippleColor="@color/tutorial_ripple_color" />
 
         </LinearLayout>
 

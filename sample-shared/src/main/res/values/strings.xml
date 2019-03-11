@@ -47,6 +47,7 @@
     <string name="rate_it_page_2_bad_summary">Not loving the app yet? Please get in touch to let us know how to make it better!</string>
     <string name="rate_it">Rate It!</string>
     <string name="send_email">Send Email</string>
+    <string name="no_thanks">No thanks</string>
 
     <!-- Feature Walk-through Example -->
     <string name="feature_1_title">My awesome first feature</string>

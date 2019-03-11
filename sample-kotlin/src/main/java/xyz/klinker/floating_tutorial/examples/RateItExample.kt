@@ -68,6 +68,11 @@ class RateItExample : FloatingTutorialActivity() {
     private class PageTwo(activity: FloatingTutorialActivity) : TutorialPage(activity) {
         override fun initPage() {
             setContentView(R.layout.example_rate_it_page_2)
+
+            findViewById<View>(R.id.tutorial_back_button).setOnClickListener {
+                setActivityResult(Activity.RESULT_CANCELED, Intent())
+                getActivity().finishAnimated()
+            }
         }
 
         override fun onShown(firstTimeShown: Boolean) {
@@ -86,6 +91,7 @@ class RateItExample : FloatingTutorialActivity() {
                 setActivityResult(Activity.RESULT_OK, data)
 
                 setNextButtonText(R.string.rate_it)
+                setBackButtonText(R.string.no_thanks)
             } else {
                 titleText.setText(R.string.rate_it_page_2_bad_title)
                 summaryText.setText(R.string.rate_it_page_2_bad_summary)
@@ -95,6 +101,7 @@ class RateItExample : FloatingTutorialActivity() {
                 setActivityResult(Activity.RESULT_OK, data)
 
                 setNextButtonText(R.string.send_email)
+                setBackButtonText(R.string.no_thanks)
             }
         }
 

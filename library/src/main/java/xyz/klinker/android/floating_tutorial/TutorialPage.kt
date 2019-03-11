@@ -40,6 +40,7 @@ abstract class TutorialPage(private val activity: FloatingTutorialActivity) : Fr
     private val pageContent: FrameLayout by lazy { rootLayout.findViewById<View>(R.id.tutorial_page_content) as FrameLayout }
     private val progressHolder: LinearLayout by lazy { rootLayout.findViewById<View>(R.id.tutorial_progress) as LinearLayout }
     private val nextButton: Button by lazy { rootLayout.findViewById<View>(R.id.tutorial_next_button) as Button }
+    private val backButton: Button by lazy { rootLayout.findViewById<View>(R.id.tutorial_back_button) as Button }
 
     private var data: Any? = null
     private var pageIndex: Int? = null
@@ -56,6 +57,7 @@ abstract class TutorialPage(private val activity: FloatingTutorialActivity) : Fr
 
         if (pageIndex == pageCount - 1) setNextButtonText(R.string.tutorial_finish)
         nextButton.setOnClickListener { activity.onNextPressed() }
+        backButton.setOnClickListener { activity.onBackPressed() }
 
         initPage()
 
@@ -163,6 +165,51 @@ abstract class TutorialPage(private val activity: FloatingTutorialActivity) : Fr
     }
 
     /**
+     * Set the color of the "Back" button's text. The default is close to black.
+     *
+     * @param newColor the color resource you want to use.
+     */
+    fun setBackButtonTextColorResource(@ColorRes newColor: Int) {
+        setBackButtonTextColor(activity.resources.getColor(newColor))
+    }
+
+    /**
+     * Set the color of the "Back" button's text. The default is close to black.
+     *
+     * @param newColor the color value you want to use.
+     */
+    fun setBackButtonTextColor(newColor: Int) {
+        nextButton.setTextColor(newColor)
+    }
+
+    /**
+     * Set the text for the "Back" button. The default is simply "Back".
+     *
+     * @param text the string you want to use.
+     */
+    fun setBackButtonText(@StringRes text: Int) {
+        setBackButtonText(activity.getString(text))
+    }
+
+    /**
+     * Set the text for the "Back" button. The default is simply "Back".
+     *
+     * @param text the string you want to use.
+     */
+    fun setBackButtonText(text: String) {
+        backButton.text = text
+        showBackButton()
+    }
+
+    /**
+     * Show the "Back" button to explicitly handle returning to the previous page.
+     */
+    fun showBackButton() {
+        backButton.visibility = View.VISIBLE
+        progressHolder.visibility = View.GONE
+    }
+
+    /**
      * Hide the "Next" button to handle advancing the paging through a [View] you define in the page.
      */
     fun hideNextButton() {
@@ -257,7 +304,7 @@ abstract class TutorialPage(private val activity: FloatingTutorialActivity) : Fr
     }
 
     companion object {
-        private val DARKNESS_THRESHOLD = 0.30
+        private const val DARKNESS_THRESHOLD = 0.30
         private fun isColorDark(color: Int): Boolean {
             val darkness = 1 - (0.299 * Color.red(color) + 0.587 * Color.green(color) + 0.114 * Color.blue(color)) / 255
             return darkness >= DARKNESS_THRESHOLD

@@ -17,6 +17,7 @@
 
 <resources>
 
+    <string name="tutorial_back">Back</string>
     <string name="tutorial_next">Next</string>
     <string name="tutorial_finish">Finish</string>
 
