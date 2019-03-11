@@ -16,7 +16,7 @@ Add the following to your app's `build.gradle` file:
 
 ```java
 dependencies {
-    compile "com.klinkerapps:floating-tutorial:1.1.0"
+    implementation 'com.klinkerapps:floating-tutorial:1.1.0'
 }
 ```
 
