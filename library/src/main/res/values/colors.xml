@@ -18,6 +18,7 @@
 <resources>
 
     <color name="tutorial_background_dim">#55000000</color>
+    <color name="tutorial_ripple_color">#EEEEEE</color>
     <color name="tutorial_light_background_indicator">#AA000000</color>
     <color name="tutorial_dark_background_indicator">#EEFFFFFF</color>
 

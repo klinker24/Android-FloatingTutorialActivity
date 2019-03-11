@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright (C) 2017 Luke Klinker
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,7 +14,7 @@
   ~ limitations under the License.
   -->
 
-<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -51,6 +50,8 @@
 
             <Button
                 android:id="@+id/tutorial_next_button"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                app:rippleColor="@color/tutorial_ripple_color"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
@@ -64,4 +65,4 @@
 
     </LinearLayout>
 
-</android.support.v7.widget.CardView>
+</androidx.cardview.widget.CardView>

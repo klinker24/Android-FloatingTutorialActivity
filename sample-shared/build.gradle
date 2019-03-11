@@ -54,7 +54,8 @@ android {
 }
 
 dependencies {
-    implementation "com.android.support:appcompat-v7:$ANDROID_SUPPORT_VERSION"
+    implementation "androidx.appcompat:appcompat:$ANDROID_X_VERSION"
+    implementation 'com.google.android.material:material:1.0.0'
 
     implementation project(":library")
 }

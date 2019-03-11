@@ -51,11 +51,11 @@ android {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$KOTLIN_VERSION"
-    implementation "com.android.support:appcompat-v7:$ANDROID_SUPPORT_VERSION"
-    implementation "com.android.support:cardview-v7:$ANDROID_SUPPORT_VERSION"
+    implementation "androidx.appcompat:appcompat:$ANDROID_X_VERSION"
+    implementation 'com.google.android.material:material:1.0.0'
 
     testImplementation 'junit:junit:4.12'
-    testImplementation "org.robolectric:robolectric:3.8"
+    testImplementation 'org.robolectric:robolectric:3.8'
     testImplementation 'org.mockito:mockito-core:2.18.3'
 }
 

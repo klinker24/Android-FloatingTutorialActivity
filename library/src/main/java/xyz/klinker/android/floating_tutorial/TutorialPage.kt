@@ -18,8 +18,8 @@ package xyz.klinker.android.floating_tutorial
 
 import android.content.Intent
 import android.graphics.Color
-import android.support.annotation.*
-import android.support.v7.widget.CardView
+import androidx.annotation.*
+import androidx.cardview.widget.CardView
 import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup

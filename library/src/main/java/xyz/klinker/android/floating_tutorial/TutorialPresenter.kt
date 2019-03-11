@@ -20,7 +20,7 @@ import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
 import android.annotation.SuppressLint
 import android.os.Build
-import android.support.annotation.VisibleForTesting
+import androidx.annotation.VisibleForTesting
 import android.view.View
 import android.view.ViewAnimationUtils
 
