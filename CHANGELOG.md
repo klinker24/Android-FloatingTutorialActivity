@@ -1,5 +1,9 @@
 # Changelog
 
+### v1.1.0
+* add support for displaying a 'back' button
+* update dependencies and build tools (convert to Android X)
+
 ### v1.0.4
 * update dependencies and build tools
 
