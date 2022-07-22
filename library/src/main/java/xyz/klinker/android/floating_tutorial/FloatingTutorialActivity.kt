@@ -68,7 +68,7 @@ abstract class FloatingTutorialActivity : AppCompatActivity() {
      * this instead of just [finish] on the last [TutorialPage].
      */
     fun finishAnimated() {
-        presenter.circularRevealOut()
+        presenter.revealOut()
     }
 
     /**
