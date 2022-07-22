@@ -27,7 +27,8 @@
         <activity
             android:name="xyz.klinker.floating_tutorial.SampleActivity"
             android:theme="@style/AppTheme"
-            android:windowSoftInputMode="stateHidden">
+            android:windowSoftInputMode="stateHidden"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -48,6 +49,9 @@
             android:theme="@style/tutorial_FloatingTutorialTheme" />
         <activity
             android:name=".examples.PulseSmsPurchaseExample"
+            android:theme="@style/tutorial_FloatingTutorialTheme" />
+        <activity
+            android:name=".examples.BottomSheetExample"
             android:theme="@style/tutorial_FloatingTutorialTheme" />
 
     </application>

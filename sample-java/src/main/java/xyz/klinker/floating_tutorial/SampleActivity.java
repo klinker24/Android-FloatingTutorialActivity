@@ -22,6 +22,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
 
+import xyz.klinker.floating_tutorial.examples.BottomSheetExample;
 import xyz.klinker.floating_tutorial.examples.PulseSmsPurchaseExample;
 import xyz.klinker.floating_tutorial.examples.RateItExample;
 import xyz.klinker.floating_tutorial.examples.SelectionDialogExample;
@@ -71,6 +72,13 @@ public class SampleActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivityForResult(new Intent(SampleActivity.this, PulseSmsPurchaseExample.class), REQUEST_PURCHASE);
+            }
+        });
+
+        findViewById(R.id.bottom_sheet).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(SampleActivity.this, BottomSheetExample.class));
             }
         });
     }
