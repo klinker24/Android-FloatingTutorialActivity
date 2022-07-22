@@ -45,12 +45,12 @@ class TutorialPresenterTest : FloatingTutorialJunitSuite() {
     fun shouldRevealOnStart() {
         val mockPage = mock(TutorialPage::class.java)
 
-        doNothing().`when`(presenter!!).circularRevealIn()
+        doNothing().`when`(presenter!!).revealIn()
         doReturn(mockPage).`when`(provider!!).currentPage()
 
         presenter!!.start()
 
-        verify(presenter!!).circularRevealIn()
+        verify(presenter!!).revealIn()
         verify(mockPage).onShown(true)
     }
 
@@ -71,12 +71,12 @@ class TutorialPresenterTest : FloatingTutorialJunitSuite() {
 
     @Test
     fun shouldExitWhenBackingOutOfTheFirstPage() {
-        doNothing().`when`(presenter!!).circularRevealOut()
+        doNothing().`when`(presenter!!).revealOut()
 
         `when`(provider!!.previousPage()).thenReturn(null)
         presenter!!.onBackPressed()
 
-        verify(presenter!!).circularRevealOut()
+        verify(presenter!!).revealOut()
     }
 
     @Test
@@ -119,12 +119,12 @@ class TutorialPresenterTest : FloatingTutorialJunitSuite() {
 
     @Test
     fun shouldExitWhenGoingForwardOnLastPage() {
-        doNothing().`when`(presenter!!).circularRevealOut()
+        doNothing().`when`(presenter!!).revealOut()
 
         `when`(provider!!.nextPage()).thenReturn(null)
         presenter!!.onNextPressed()
 
-        verify(presenter!!).circularRevealOut()
+        verify(presenter!!).revealOut()
     }
 
     @Test
@@ -132,7 +132,7 @@ class TutorialPresenterTest : FloatingTutorialJunitSuite() {
         val activityMock = mock(FinishedListenerTutorial::class.java)
         presenter = spy(TutorialPresenter(activityMock, provider!!))
 
-        doNothing().`when`(presenter!!).circularRevealOut()
+        doNothing().`when`(presenter!!).revealOut()
         `when`(provider!!.nextPage()).thenReturn(null)
         presenter!!.onNextPressed()
 
