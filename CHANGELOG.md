@@ -1,5 +1,8 @@
 # Changelog
 
+### v2.0.0
+* Support new `BottomSheetTutorialPage` option to bottom align the tutorial rather than center it.
+
 ### v1.1.0
 * add support for displaying a 'back' button
 * update dependencies and build tools (convert to Android X)
