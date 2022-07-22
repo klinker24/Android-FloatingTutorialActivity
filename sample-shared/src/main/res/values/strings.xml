@@ -27,6 +27,7 @@
     <string name="feature_tutorial_example">Feature Walk-through Example</string>
     <string name="rate_it_example">Rate It Example</string>
     <string name="iap_flow_example">Pulse SMS Purchase Flow Example</string>
+    <string name="bottom_sheet_example">Bottom Sheet Example</string>
 
     <!-- Simple Dialog Example -->
     <string name="simple_dialog_title">Here is a simple dialog</string>

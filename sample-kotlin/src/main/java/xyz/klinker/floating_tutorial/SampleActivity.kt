@@ -22,12 +22,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import android.view.View
 import android.widget.Toast
-
-import xyz.klinker.floating_tutorial.examples.FeatureWalkthroughExample
-import xyz.klinker.floating_tutorial.examples.PulseSmsPurchaseExample
-import xyz.klinker.floating_tutorial.examples.RateItExample
-import xyz.klinker.floating_tutorial.examples.SelectionDialogExample
-import xyz.klinker.floating_tutorial.examples.SimpleDialogExample
+import xyz.klinker.floating_tutorial.examples.*
 
 class SampleActivity : AppCompatActivity() {
 
@@ -36,6 +31,7 @@ class SampleActivity : AppCompatActivity() {
     private val featureTutorial: View by lazy { findViewById<View>(R.id.feature_tutorial) }
     private val rateIt: View by lazy { findViewById<View>(R.id.rate_it) }
     private val iapFlow: View by lazy { findViewById<View>(R.id.iap_flow) }
+    private val bottomSheet: View by lazy { findViewById<View>(R.id.bottom_sheet) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,6 +55,10 @@ class SampleActivity : AppCompatActivity() {
 
         iapFlow.setOnClickListener {
             startActivityForResult(Intent(this, PulseSmsPurchaseExample::class.java), REQUEST_PURCHASE)
+        }
+
+        bottomSheet.setOnClickListener {
+            startActivity(Intent(this, BottomSheetExample::class.java))
         }
     }
 

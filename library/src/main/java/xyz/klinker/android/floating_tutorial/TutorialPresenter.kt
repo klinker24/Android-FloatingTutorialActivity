@@ -32,7 +32,7 @@ internal class TutorialPresenter(private val activity: FloatingTutorialActivity,
      * Start the [FloatingTutorialActivity] by doing a circular reveal and loading the first page.
      */
     fun start() {
-        circularRevealIn()
+        revealIn()
         pageProvider.currentPage().onShown(true)
     }
 
@@ -42,7 +42,7 @@ internal class TutorialPresenter(private val activity: FloatingTutorialActivity,
     fun onBackPressed() {
         val previousPage = pageProvider.previousPage()
         if (previousPage == null) {
-            circularRevealOut()
+            revealOut()
         } else {
             previousPage.onShown(false)
 
@@ -58,7 +58,7 @@ internal class TutorialPresenter(private val activity: FloatingTutorialActivity,
     fun onNextPressed() {
         val nextPage = pageProvider.nextPage()
         if (nextPage == null) {
-            circularRevealOut()
+            revealOut()
 
             if (activity is TutorialFinishedListener) {
                 activity.onTutorialFinished()
@@ -76,11 +76,11 @@ internal class TutorialPresenter(private val activity: FloatingTutorialActivity,
      * it will be a circular reveal animation. Otherwise, it will be a alpha transition.
      */
     @VisibleForTesting
-    internal fun circularRevealIn() {
+    internal fun revealIn() {
         val firstPage = pageProvider.currentPage()
         firstPage.visibility = View.VISIBLE
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && pageProvider.currentPage() !is BottomSheetTutorialPage) {
             val cx = firstPage.width / 2
             val cy = firstPage.height / 2
             val finalRadius = Math.hypot(cx.toDouble(), cy.toDouble()).toFloat()
@@ -93,7 +93,7 @@ internal class TutorialPresenter(private val activity: FloatingTutorialActivity,
             }
         } else {
             firstPage.alpha = 0f
-            firstPage.animate().alpha(1f).start()
+            firstPage.animate().alpha(1f).setDuration(200).start()
         }
 
     }
@@ -103,10 +103,10 @@ internal class TutorialPresenter(private val activity: FloatingTutorialActivity,
      * it will be a circular reveal animation. Otherwise, it will be a alpha transition.
      */
     @VisibleForTesting
-    internal fun circularRevealOut() {
+    internal fun revealOut() {
         val currentPage = pageProvider.currentPage()
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && pageProvider.currentPage() !is BottomSheetTutorialPage) {
             val cx = currentPage.width / 2
             val cy = currentPage.height / 2
             val initialRadius = Math.hypot(cx.toDouble(), cy.toDouble()).toFloat()
@@ -131,7 +131,7 @@ internal class TutorialPresenter(private val activity: FloatingTutorialActivity,
                 }).start()
             }
         } else {
-            currentPage.animate().alpha(0f).setListener(object : AnimatorListenerAdapter() {
+            currentPage.animate().alpha(0f).setDuration(200).setListener(object : AnimatorListenerAdapter() {
                 override fun onAnimationEnd(animation: Animator) {
                     super.onAnimationEnd(animation)
                     activity.close()

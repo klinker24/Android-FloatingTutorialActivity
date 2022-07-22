@@ -56,4 +56,11 @@
         android:layout_height="wrap_content"
         android:text="@string/iap_flow_example" />
 
+    <Button
+        android:id="@+id/bottom_sheet"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/bottom_sheet_example" />
+
 </LinearLayout>

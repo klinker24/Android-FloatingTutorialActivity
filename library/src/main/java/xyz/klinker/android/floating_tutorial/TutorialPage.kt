@@ -45,14 +45,18 @@ abstract class TutorialPage(private val activity: FloatingTutorialActivity) : Fr
     private var data: Any? = null
     private var pageIndex: Int? = null
 
+    internal open val rootLayoutParams: LayoutParams
+        get() = LayoutParams(
+                DensityConverter.toDp(activity, 316),
+                ViewGroup.LayoutParams.WRAP_CONTENT).apply {
+            gravity = Gravity.CENTER
+        }
+
     internal fun init(pageIndex: Int) {
         val pageCount = activity.getPageCount()
         this.pageIndex = pageIndex
 
-        val layoutParams = FrameLayout.LayoutParams(DensityConverter.toDp(activity, 316), ViewGroup.LayoutParams.WRAP_CONTENT)
-        layoutParams.gravity = Gravity.CENTER
-
-        rootLayout.layoutParams = layoutParams
+        rootLayout.layoutParams = rootLayoutParams
         super.addView(rootLayout)
 
         if (pageIndex == pageCount - 1) setNextButtonText(R.string.tutorial_finish)
@@ -97,7 +101,7 @@ abstract class TutorialPage(private val activity: FloatingTutorialActivity) : Fr
      * Called the first time the [TutorialPage] is displayed. Override this to do any animation work
      * on the page elements.
      */
-    open fun animateLayout() { }
+    open fun animateLayout() {}
 
     /**
      * Get the [FloatingTutorialActivity] that this [TutorialPage] is attached to.
