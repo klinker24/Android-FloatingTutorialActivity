@@ -46,7 +46,7 @@ override fun getPages() = listOf(
 
 A `TutorialPage` is similar to an `Activity` or `Fragment`. After you have used the `setContentView` function, you can manipulate those `Views` with the `findViewById` method. The tutorial pages do not enforce any UI standards for the content, so you can design these layouts to be whatever you want. Each page will automatically get the "Next" button and the progress indicators added, unless you specifically remove them.
 
-> NOTE: the standard `TutorialPage` will float in the middle of the screen as shown in the above screenshots. For a bottom sheet version, extend the `BottomSheetTutorialPage` instead.
+> NOTE: the standard `TutorialPage` will float in the middle of the screen as shown in the above screenshots. For a bottom sheet version, extend the `BottomSheetTutorialPage` instead. This will just float a similar sheet at the bottom of the screen, with the same sort of effect.
 
 To customize the look of the page, there are numerous options available:
 
